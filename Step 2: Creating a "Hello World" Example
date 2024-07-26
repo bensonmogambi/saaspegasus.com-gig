@@ -1,0 +1,51 @@
+1. Create a New Django App:
+
+bash
+Copy code
+python manage.py startapp hello_world
+
+2. Add the App to Installed Apps:
+Add hello_world to the INSTALLED_APPS list in settings.py.
+
+3. Define a Simple View:
+In hello_world/views.py:
+
+python
+Copy code
+from django.http import HttpResponse
+
+def hello_world(request):
+    return HttpResponse("Hello, world!")
+
+4. Create a URL for the View:
+In hello_world/urls.py:
+
+python
+Copy code
+from django.urls import path
+from .views import hello_world
+
+urlpatterns = [
+    path('hello/', hello_world, name='hello_world'),
+]
+
+5. Update the main urls.py to include hello_world app:
+
+python
+Copy code
+from django.urls import include, path
+
+urlpatterns = [
+    path('hello_world/', include('hello_world.urls')),
+    # other paths
+]
+
+6. Run the Server:
+
+bash
+Copy code
+python manage.py runserver
+
+
+
+Navigate to http://localhost:8000/hello_world/hello/ to see "Hello, world!".
