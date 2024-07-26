@@ -1,0 +1,42 @@
+1. Clone the SAAS Pegasus Repository:
+
+bash
+Copy code
+git clone https://github.com/your-organization/saaspegasus.git
+cd saaspegasus
+
+2. Install Dependencies:
+Make sure you have Python and Node.js installed. Then, set up a virtual environment and install Python dependencies:
+
+bash
+Copy code
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+3. Install JavaScript Dependencies:
+
+bash
+Copy code
+cd frontend
+npm install
+cd ..
+
+4. Configure Environment Variables:
+Create a .env file in the root directory and add necessary environment variables:
+
+bash
+Copy code
+cp .env.example .env
+# Edit the .env file with your configuration
+
+5. Run Initial Migrations:
+
+bash
+Copy code
+python manage.py migrate
+Create a Superuser:
+
+bash
+Copy code
+python manage.py createsuperuser
